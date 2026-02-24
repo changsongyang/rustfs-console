@@ -245,7 +245,7 @@ export function ObjectUploadPicker({ show, onShowChange, bucketName, prefix, onS
         let lastReported = 0
         const newItems = await getFilesFromDirectoryHandle(
           dirHandle as FileSystemDirectoryHandle & DirHandleLike,
-          "",
+          (dirHandle as FileSystemDirectoryHandle).name ?? "",
           (count) => {
             if (count - lastReported >= 200 || count === 0) {
               lastReported = count
